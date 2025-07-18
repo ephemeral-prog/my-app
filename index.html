@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI計算機</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>BMI計算機</h1>
+        <div class="input-group">
+            <label for="height">身長（cm）:</label>
+            <input type="number" id="height" placeholder="例: 170">
+        </div>
+        <div class="input-group">
+            <label for="weight">体重（kg）:</label>
+            <input type="number" id="weight" placeholder="例: 65">
+        </div>
+        <button onclick="calculateBMI()">計算する</button>
+        <div id="result"></div>
+        <div id="ideal-weight"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
