@@ -2,28 +2,56 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BMI計算機</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <title>投資シミュレーター</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="container">
-        <h1>BMI計算機</h1>
-        <div class="input-group">
-            <label for="height">身長（cm）:</label>
-            <input type="number" id="height" placeholder="例: 170">
+        <h1>投資シミュレーター</h1>
+
+        <form id="investment-form">
+            <label>投資方法：
+                <select id="investment-type">
+                    <option value="lump">一括投資</option>
+                    <option value="monthly">月々積立</option>
+                    <option value="yearly">年1回積立</option>
+                </select>
+            </label>
+
+            <label>投資額（円）：
+                <input type="number" id="amount" required>
+            </label>
+
+            <label>利率（年利%）：
+                <input type="number" id="rate" step="0.1" value="5">
+            </label>
+
+            <label>投資期間（年）：
+                <input type="number" id="years" value="10" required>
+            </label>
+
+            <label>投資終了後の放置期間（年）：
+                <input type="number" id="waitYears" value="0" required>
+            </label>
+
+            <button type="submit">シミュレーション開始</button>
+        </form>
+
+        <div id="result">
+            <p id="result-invest"></p>
+            <h3>📊 投資期間中の資産推移</h3>
+            <canvas id="investmentChart" width="400" height="200"></canvas>
+            <p id="result-hold"></p>
+            <h3>🕒 放置期間中の資産推移</h3>
+            <canvas id="holdChart" width="400" height="200"></canvas>
         </div>
-        <div class="input-group">
-            <label for="weight">体重（kg）:</label>
-            <input type="number" id="weight" placeholder="例: 65">
-        </div>
-        <button onclick="calculateBMI()">計算する</button>
-        <div id="result"></div>
-        <div id="ideal-weight"></div>
+
     </div>
+
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 
 </html>
